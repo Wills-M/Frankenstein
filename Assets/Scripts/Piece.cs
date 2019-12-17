@@ -9,6 +9,8 @@ public class Piece : MonoBehaviour
 
     private Transform parent;
     private GameManager gameManager;
+
+    private bool placed = false;
     
     private void Start()
     {
@@ -16,15 +18,24 @@ public class Piece : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    public void PickUp()
+    public bool PickUp()
     {
-        transform.SetParent(pieceHolder);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        if (!placed)
+        {
+            transform.SetParent(pieceHolder);
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void Place()
     {
+        placed = true;
         transform.SetParent(parent);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;

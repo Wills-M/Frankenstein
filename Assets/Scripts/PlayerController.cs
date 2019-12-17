@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (!carryingPiece && hit.collider.tag == "Piece")
                 {
-                    carryingPiece = true;
                     carriedPiece = hit.collider.gameObject.GetComponent<Piece>();
-                    carriedPiece.PickUp();
+                    if (carriedPiece.PickUp())
+                        carryingPiece = true;
                 }
                 else if (carryingPiece && hit.collider.tag == "Altar")
                 {
