@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,11 +33,20 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float slowDown;
 
+    [SerializeField]
+    private bool playIntro;
+
+    private PlayableDirector playableDirector;
+
     private int stanzaCounter;
 
     private void Start()
     {
         stanzaCounter = 0;
+
+        playableDirector = GetComponent<PlayableDirector>();
+        if (playIntro)
+            playableDirector.Play();
     }
 
     public void IncrementPoem()
