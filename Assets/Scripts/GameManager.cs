@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,13 +12,16 @@ public class GameManager : MonoBehaviour
     private List<string> stanzas;
 
     [SerializeField]
-    private TMPro.TextMeshProUGUI page;
+    private TextMeshProUGUI pageTmp;
 
     [SerializeField]
     private Image blackScreen;
 
     [SerializeField]
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsController;
+
+    [SerializeField]
+    private float introTime;
 
     [SerializeField]
     private float timeToRead;
@@ -38,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void IncrementPoem()
     {
         stanzaCounter++;
-        page.text = stanzas[stanzaCounter - 1];
+        pageTmp.text = stanzas[stanzaCounter - 1];
 
         if (stanzaCounter == stanzas.Count)
             StartCoroutine(EndGame());
