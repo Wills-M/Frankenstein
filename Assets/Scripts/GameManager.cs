@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsController;
 
     [SerializeField]
+    private PlayableDirector pageDirector;
+
+    [SerializeField]
     private float introTime;
 
     [SerializeField]
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool playIntro;
 
-    private PlayableDirector playableDirector;
+    private PlayableDirector introDirector;
 
     private int stanzaCounter;
 
@@ -44,15 +47,17 @@ public class GameManager : MonoBehaviour
     {
         stanzaCounter = 0;
 
-        playableDirector = GetComponent<PlayableDirector>();
+        introDirector = GetComponent<PlayableDirector>();
         if (playIntro)
-            playableDirector.Play();
+            introDirector.Play();
     }
 
     public void IncrementPoem()
     {
         stanzaCounter++;
         pageTmp.text = stanzas[stanzaCounter - 1];
+        pageDirector.Stop();
+        pageDirector.Play();
 
         if (stanzaCounter == stanzas.Count)
             StartCoroutine(EndGame());
