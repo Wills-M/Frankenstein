@@ -262,8 +262,8 @@ MonoBehaviour:
       falloffExponent: 3
       xPositiveCubeFade: 0.25
       xNegativeCubeFade: 0.25
-      yPositiveCubeFade: 0.25
-      yNegativeCubeFade: 0.25
+      yPositiveCubeFade: 0.50000006
+      yNegativeCubeFade: 0
       zPositiveCubeFade: 0.25
       zNegativeCubeFade: 0.25
       angularConeFade: 0.5
@@ -302,7 +302,7 @@ MonoBehaviour:
       scale: {x: 5, y: 5, z: 5}
   densityInjection:
     enable: 1
-    strength: 5
+    strength: 0.1
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 0.1
   useScattering: 0
-  overrideScattering: 1
+  overrideScattering: 0
   overridingScattering: 0.9
   scatteringBias: 0
   useColorTemperatureTint: 0
@@ -3932,14 +3932,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 0.25
   useScattering: 0
-  overrideScattering: 1
+  overrideScattering: 0
   overridingScattering: 0.9
   scatteringBias: 0
   useColorTemperatureTint: 0
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1219508966}
+  shadowMapRenderTexture: {fileID: 978920791}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -5402,6 +5402,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 852315257}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &978920791
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Moon : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1019478813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4937870129859555112, guid: 3ed8bf0de910e1446bd04c0f06cb8cc6,
@@ -6461,41 +6496,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1202017315}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1219508966
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Moon : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1219793350
 PrefabInstance:
   m_ObjectHideFlags: 0
