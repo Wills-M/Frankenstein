@@ -25,13 +25,13 @@ public class GameManager : MonoBehaviour
     private PlayableDirector pageDirector;
 
     [SerializeField]
-    private float introTime;
-
-    [SerializeField]
     private float timeToRead;
 
     [SerializeField]
     private float timeToFade;
+
+    [SerializeField]
+    private float pageAnimateInTime;
 
     [SerializeField]
     private float slowDown;
@@ -56,19 +56,32 @@ public class GameManager : MonoBehaviour
     {
         stanzaCounter++;
         pageTmp.text = stanzas[stanzaCounter - 1];
-        pageDirector.Stop();
-        pageDirector.Play();
-
-        if (stanzaCounter == stanzas.Count)
+        if (stanzaCounter != 2)
+        {
+            pageDirector.Stop();
+            pageDirector.Play();
+        }
+        else
+        {
             StartCoroutine(EndGame());
+        }
     }
 
     private IEnumerator EndGame()
     {
         fpsController.WalkSpeed = fpsController.WalkSpeed / slowDown;
         fpsController.RunSpeed = fpsController.RunSpeed / slowDown;
+        pageDirector.Stop();
+        pageDirector.Play();
 
-        for (float counter = 0; counter <= timeToRead; counter += Time.deltaTime)
+        for (float counter = 0; counter <= pageAnimateInTime; counter += Time.deltaTime)
+        {
+            yield return null;
+        }
+
+        pageDirector.Stop();
+
+        for (float counter = 0; counter <= timeToRead - pageAnimateInTime; counter += Time.deltaTime)
         {
             yield return null;
         }

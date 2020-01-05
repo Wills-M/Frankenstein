@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/frankenstein.unity
+    guid: 9321b79b4c3475d4abfc802d59c683db
   m_configObjects: {}
