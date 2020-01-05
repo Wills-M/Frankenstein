@@ -1,4 +1,4 @@
-﻿Shader "Unlit/SkeletonUnlit"
+﻿Shader "Unlit/SkeletonUnlitZAlways"
 {
     Properties
     {
@@ -6,8 +6,9 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Transparent" }
+        Tags { "RenderType"="Opaque" "Queue" = "Transparent" }
         LOD 100
+		ZTest Always
 
         Pass
         {

@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         stanzaCounter++;
         pageTmp.text = stanzas[stanzaCounter - 1];
-        if (stanzaCounter != 2)
+        if (stanzaCounter != stanzas.Count)
         {
             pageDirector.Stop();
             pageDirector.Play();
